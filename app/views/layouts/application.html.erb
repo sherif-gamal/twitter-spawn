@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TwitterSpawn</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title><%= title %></title>
+  <%= render "layouts/stylesheets" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="container">
+		<header>
+			<%= image_tag "logo.png", alt: "logo", class: "round"%>
+			<nav class="round">
+				<ul>
+					<li><%= link_to "Home", root_path %></li>
+					<li><%= link_to "About", about_path %></li>
+					<li><%= link_to "Sign in", "#" %></li>
+				</ul>
+			</nav>
+		</header>
+		<section class="round">
+			<%= yield %>	
+		</section>
+		<%= render "layouts/footer.html.erb" %>
+	</div>
 </body>
 </html>
